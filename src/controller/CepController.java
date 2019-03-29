@@ -3,35 +3,39 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package testepratico;
+package controller;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import model.CEP;
 
 /**
  *
  * @author User
  */
-public class TestePratico {
-
-    /**
-     * @param args the command line arguments
+public class CepController {
+    public CEP buscaCepBanco(String ncep){
+        
+        CEP cep = new CEP();
+        return cep;
+    }
     
-     */
-
-    public static String buscarCep(String cep) {
+    public CEP buscaCepApi(String ncep){
+        
+        CEP cep = new CEP();
+        return cep;
+    }
+    
+    
+    public void buscarCep(String cep){
+        
         String json;
 
         try {
@@ -49,12 +53,7 @@ public class TestePratico {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-
-        return json;
-    }
-
-    public static void main(String[] args) throws IOException {
-        String json = buscarCep("69046000");
+        
         System.out.println(json);
 
         Map<String,String> mapa = new HashMap<>();
