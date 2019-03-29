@@ -5,7 +5,7 @@
  */
 package view;
 
-import facade.CepFacade;
+import controller.CepController;
 import model.CEP;
 
 /**
@@ -143,7 +143,11 @@ public class MainFrame extends javax.swing.JFrame {
     private void btPesquisarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btPesquisarMouseClicked
         // TODO add your handling code here:
         String srcCep = txCep.getText();
-        CEP cep = CepFacade.buscaCepApi(srcCep);
+        //CEP cep = CepFacade.buscaCepApi(srcCep);
+        CepController controller = new CepController();
+        CEP cep = controller.buscarCep(srcCep);
+        
+        //CEP cep = CepFacade.buscaCep(srcCep);
         if (cep == null) {
             lbErro.setText("CEP NÃO ENCONTRADO");
         } else {

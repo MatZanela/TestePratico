@@ -11,6 +11,8 @@ import java.io.Serializable;
  *
  * @author User
  */
+
+//Model de CEP utilizado no sistema
 public class CEP implements Serializable{
     private String cep;
     private String logradouro;
@@ -24,19 +26,6 @@ public class CEP implements Serializable{
     
     public CEP(){}
 
-    public CEP(String cep, String logradouro, String complemento, String bairro, String localidade, String uf, String unidade, String ibge, String gia) {
-        this.cep = cep;
-        this.logradouro = logradouro;
-        this.complemento = complemento;
-        this.bairro = bairro;
-        this.localidade = localidade;
-        this.uf = uf;
-        this.unidade = unidade;
-        this.ibge = ibge;
-        this.gia = gia;
-    }
-    
-    
 
     public String getCep() {
         return cep;

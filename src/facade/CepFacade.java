@@ -5,28 +5,34 @@
  */
 package facade;
 
-import controller.CepController;
+import dao.CepDao;
 import java.util.HashMap;
 import java.util.Map;
 import model.CEP;
+import viacep.ViaCep;
 
 /**
  *
  * @author User
  */
 public class CepFacade {
-    public static CEP buscaCepApi(String srcCep){
+    
+    // codigos e regras de negocio para insercao de CEP no banco de dados
+    public static void inserirCepBd(CEP cep){
+        CepDao dao = new CepDao();
+        dao.insereCep(cep);
+    }
+    
+    // codigos e regras de negocio para busca de CEP pelo ViaCep
+    public static CEP buscarCepApi(String srcCep){
         
         srcCep = srcCep.replace(".", "");
         srcCep = srcCep.replace("-", "");
         
         Map<String,String> mapa = new HashMap<>();
         
-        CepController controller = new CepController();
-        
-        
         CEP cep = new CEP();
-        if((mapa = controller.buscarCepApi(srcCep)) == null){
+        if((mapa = ViaCep.buscarCep(srcCep)) == null){
             return null;
         }else{
             cep.setCep(mapa.get("cep"));
@@ -41,5 +47,20 @@ public class CepFacade {
 
             return cep;
         }
+    }
+    
+    // codigos e regras de negocio para busca de CEP no Banco de Dados
+    public static CEP buscarCepBD(String srcCep){
+        
+        srcCep = srcCep.replace(".", "");
+        
+        CepDao dao = new CepDao();
+        CEP cep = dao.buscaCep(srcCep);
+        if(cep == null){
+            System.out.println("nada encontrado");
+            return null;
+        }
+        return cep;
+        
     }
 }

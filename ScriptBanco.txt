@@ -1,0 +1,17 @@
+CREATE DATABASE testepratico;
+
+USE testepratico;
+
+CREATE TABLE cep(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    cep VARCHAR(9),
+    logradouro VARCHAR(50),
+    complemento VARCHAR(50),
+    bairro VARCHAR(50),
+    localidade VARCHAR(50),
+    uf VARCHAR(2),
+    unidade VARCHAR(50),
+    ibge VARCHAR(15),
+    gia VARCHAR(15)
+);
+
