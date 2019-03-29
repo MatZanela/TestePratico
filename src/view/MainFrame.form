@@ -6,7 +6,7 @@
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
-    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="true"/>
   </SyntheticProperties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -42,12 +42,16 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="141" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
+                          <Component id="txCep" min="-2" pref="95" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                               <Component id="btPesquisar" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="txCep" min="-2" pref="95" max="-2" attributes="0"/>
                       </Group>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="129" max="-2" attributes="0"/>
+                      <Component id="lbErro" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="164" max="32767" attributes="0"/>
@@ -61,7 +65,9 @@
               <Component id="txCep" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="btPesquisar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="lbErro" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
               <Component id="lbCep" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="lbLogradouro" min="-2" max="-2" attributes="0"/>
@@ -79,7 +85,7 @@
               <Component id="lbIBGE" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="lbGIA" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="18" max="32767" attributes="0"/>
+              <EmptySpace pref="32" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -102,48 +108,50 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lbCep">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Cep"/>
+        <Property name="text" type="java.lang.String" value="Cep:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lbLogradouro">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Logradouro"/>
+        <Property name="text" type="java.lang.String" value="Logradouro:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lbComplemento">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Complemento"/>
+        <Property name="text" type="java.lang.String" value="Complemento:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lbBairro">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Bairro"/>
+        <Property name="text" type="java.lang.String" value="Bairro:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lbLocalidade">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Localidade"/>
+        <Property name="text" type="java.lang.String" value="Localidade:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lbUF">
       <Properties>
-        <Property name="text" type="java.lang.String" value="UF"/>
+        <Property name="text" type="java.lang.String" value="UF:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lbUnidade">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Unidade"/>
+        <Property name="text" type="java.lang.String" value="Unidade:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lbIBGE">
       <Properties>
-        <Property name="text" type="java.lang.String" value="IBGE"/>
+        <Property name="text" type="java.lang.String" value="IBGE:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="lbGIA">
       <Properties>
-        <Property name="text" type="java.lang.String" value="GIA"/>
+        <Property name="text" type="java.lang.String" value="GIA:"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbErro">
     </Component>
   </SubComponents>
 </Form>

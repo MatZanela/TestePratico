@@ -41,6 +41,7 @@ public class MainFrame extends javax.swing.JFrame {
         lbUnidade = new javax.swing.JLabel();
         lbIBGE = new javax.swing.JLabel();
         lbGIA = new javax.swing.JLabel();
+        lbErro = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,23 +58,23 @@ public class MainFrame extends javax.swing.JFrame {
             ex.printStackTrace();
         }
 
-        lbCep.setText("Cep");
+        lbCep.setText("Cep:");
 
-        lbLogradouro.setText("Logradouro");
+        lbLogradouro.setText("Logradouro:");
 
-        lbComplemento.setText("Complemento");
+        lbComplemento.setText("Complemento:");
 
-        lbBairro.setText("Bairro");
+        lbBairro.setText("Bairro:");
 
-        lbLocalidade.setText("Localidade");
+        lbLocalidade.setText("Localidade:");
 
-        lbUF.setText("UF");
+        lbUF.setText("UF:");
 
-        lbUnidade.setText("Unidade");
+        lbUnidade.setText("Unidade:");
 
-        lbIBGE.setText("IBGE");
+        lbIBGE.setText("IBGE:");
 
-        lbGIA.setText("GIA");
+        lbGIA.setText("GIA:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -96,10 +97,13 @@ public class MainFrame extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(141, 141, 141)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txCep, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
-                                .addComponent(btPesquisar))
-                            .addComponent(txCep, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(btPesquisar))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(129, 129, 129)
+                        .addComponent(lbErro)))
                 .addContainerGap(164, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -109,7 +113,9 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(txCep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btPesquisar)
-                .addGap(33, 33, 33)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbErro)
+                .addGap(13, 13, 13)
                 .addComponent(lbCep)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbLogradouro)
@@ -127,16 +133,30 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(lbIBGE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lbGIA)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btPesquisarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btPesquisarMouseClicked
         // TODO add your handling code here:
         String srcCep = txCep.getText();
-        CEP cep = CepFacade.buscaCepApi();
+        CEP cep = CepFacade.buscaCepApi(srcCep);
+        if (cep == null) {
+            lbErro.setText("CEP NÃO ENCONTRADO");
+        } else {
+            lbErro.setText("CEP ENCONTRADO");
+            lbBairro.setText("Bairro: " + cep.getBairro());
+            lbCep.setText("Cep: " + cep.getCep());
+            lbComplemento.setText("Complemento: " + cep.getComplemento());
+            lbGIA.setText("GIA: " + cep.getGia());
+            lbIBGE.setText("IBGE: " + cep.getIbge());
+            lbLocalidade.setText("Localidade: " + cep.getLocalidade());
+            lbLogradouro.setText("Logradouro: " + cep.getLogradouro());
+            lbUF.setText("UF: " + cep.getUf());
+        }
     }//GEN-LAST:event_btPesquisarMouseClicked
 
     /**
@@ -179,6 +199,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lbBairro;
     private javax.swing.JLabel lbCep;
     private javax.swing.JLabel lbComplemento;
+    private javax.swing.JLabel lbErro;
     private javax.swing.JLabel lbGIA;
     private javax.swing.JLabel lbIBGE;
     private javax.swing.JLabel lbLocalidade;

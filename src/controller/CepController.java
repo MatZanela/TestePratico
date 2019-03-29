@@ -27,14 +27,14 @@ public class CepController {
         return cep;
     }
     
-    public CEP buscaCepApi(String ncep){
+    public CEP buscarCepBanco(String ncep){
         
         CEP cep = new CEP();
         return cep;
     }
     
     
-    public void buscarCep(String cep){
+    public Map buscarCepApi(String cep){
         
         String json;
 
@@ -51,10 +51,8 @@ public class CepController {
             json = jsonSb.toString();
 
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            return null;
         }
-        
-        System.out.println(json);
 
         Map<String,String> mapa = new HashMap<>();
 
@@ -64,7 +62,7 @@ public class CepController {
             mapa.put(group[0].replaceAll("\"", "").trim(), group[1].replaceAll("\"", "").trim());
         }
 
-        System.out.println(mapa);
+        return mapa;
     }
     
 }
